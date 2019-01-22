@@ -25,6 +25,7 @@
         <mybatis-spring-boot.version>1.3.2</mybatis-spring-boot.version>
         <shiro-spring-boot.version>1.4.0</shiro-spring-boot.version>
         <javapoet.version>1.11.1</javapoet.version>
+        <koloboke.version>1.0.0</koloboke.version>
     </properties>
 
     <repositories>
@@ -213,6 +214,18 @@
                 <groupId>com.squareup</groupId>
                 <artifactId>javapoet</artifactId>
                 <version>${javapoet.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.koloboke</groupId>
+                <artifactId>koloboke-api-jdk8</artifactId>
+                <version>${koloboke.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.koloboke</groupId>
+                <artifactId>koloboke-impl-jdk8</artifactId>
+                <version>${koloboke.version}</version>
+                <scope>runtime</scope>
             </dependency>
 
         </dependencies>
