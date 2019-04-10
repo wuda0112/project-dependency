@@ -1,1 +1,2 @@
-多个项目的父POM，方便统一jar包依赖。
+基于SpringBoot,统一管理依赖和插件,方便快速构建SpringBoot项目,同时也跟随
+SpringBoot使用相关版本的第三方Jar包.

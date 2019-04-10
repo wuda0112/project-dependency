@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.wuda</groupId>
-    <artifactId>project-dependency</artifactId>
-    <version>1.0.1</version>
+    <groupId>io.github.wuda0112</groupId>
+    <artifactId>yhan-spring-boot-based-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <description>统一管理项目依赖</description>
+    <description>基于spring boot,统一管理依赖和插件.</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -18,7 +18,41 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <licenses>
+        <license>
+            <name>Apache Software License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/wuda0112/yhan-spring-boot-based-parent</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>wuda</name>
+            <email>wuda0112@gmail.com</email>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
+        <!--plugins-->
+        <gpg.plugin.version>1.6</gpg.plugin.version>
+
+        <!--dependencies-->
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
         <springfox.version>2.8.0</springfox.version>
@@ -27,6 +61,8 @@
         <javapoet.version>1.11.1</javapoet.version>
         <koloboke.version>1.0.0</koloboke.version>
         <commons.cli.version>1.4</commons.cli.version>
+        <debezium.version>0.9.3.Final</debezium.version>
+        <druid.version>1.1.15</druid.version>
     </properties>
 
     <repositories>
@@ -79,8 +115,25 @@
                         <target>${java.version}</target>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${gpg.plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
             </plugins>
         </pluginManagement>
+
     </build>
 
     <dependencies>
@@ -233,6 +286,18 @@
                 <groupId>commons-cli</groupId>
                 <artifactId>commons-cli</artifactId>
                 <version>${commons.cli.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.debezium</groupId>
+                <artifactId>debezium-connector-mysql</artifactId>
+                <version>${debezium.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
 
         </dependencies>
