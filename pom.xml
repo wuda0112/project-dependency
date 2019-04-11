@@ -4,7 +4,7 @@
 
     <groupId>io.github.wuda0112</groupId>
     <artifactId>yhan-spring-boot-based-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>基于spring boot,统一管理依赖和插件.</description>
