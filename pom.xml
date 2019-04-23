@@ -115,6 +115,7 @@
         <commons.cli.version>1.4</commons.cli.version>
         <debezium.version>0.9.3.Final</debezium.version>
         <druid.version>1.1.15</druid.version>
+        <commons.io.version>2.6</commons.io.version>
     </properties>
 
     <repositories>
@@ -407,6 +408,12 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
             </dependency>
 
         </dependencies>
